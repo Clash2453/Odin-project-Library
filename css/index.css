@@ -48,7 +48,9 @@ table {
 }
 /* CSS RESET */
 main,
-.container{
+.container,
+.card,
+label{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,4 +64,15 @@ main,
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+}
+.card{
+	border-radius: 5%;
+	background-color: rgb(32, 34, 37);
+	width: 25vw;
+	height: 25vw;
+	min-width: 350px;
+	min-height: 417px;
+}
+label{
+	color: white;
 }
