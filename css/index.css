@@ -57,6 +57,15 @@ label{
     align-items: center;
     gap: 1rem;
 }
+main{
+	background-color: rgb(32, 34, 37);
+	min-height: 100vh;
+}
+h1{
+	font-size: 3rem;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
 .container{
 	min-height: calc(100vh - 4rem);
 	width: 100%;
@@ -65,22 +74,29 @@ label{
 	background-repeat: no-repeat;
 	background-position: center;
 }
+.hidden{
+	display: none;
+}
 .card{
 	border-radius: 5%;
 	background-color: rgb(32, 34, 37);
 	width: 25vw;
 	height: 25vw;
 	min-width: 350px;
-	min-height: 417px;
+	min-height: 450px;
 }
 label{
 	color: white;
 }
 button{
 	border-radius: 0%;
-	border: solid 2px aqua;
-	background: linear-gradient(to bottom, transparent 50%, green 50%);
+	background: linear-gradient(to bottom, transparent 50%, rgb(199, 105, 4) 50%);
 	color: white;
+	border: solid 2px rgb(199, 105, 4);
 	border-radius: 3em;
 	font-size: 2rem;
+	font-family: 'Lato', sans-serif;
 }
+button:hover{
+	box-shadow: rgba(184, 79, 8, 0.09) 0px 54px 55px, rgba(184, 79, 8, 0.24) 0px -12px 30px, rgba(184, 79, 8, 0.24) 0px 4px 6px, rgba(184, 79, 8, 0.34) 0px 12px 13px, rgba(184, 79, 8, 0.18) 0px -3px 5px;
+}	
