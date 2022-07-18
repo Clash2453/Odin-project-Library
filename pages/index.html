@@ -8,11 +8,13 @@
     <title>Library</title>
 </head>
 <body>
-    <main>
-        <h1>Welcome to your Library</h1>
-        <button onclick="gatherInput()" id="add-button">Add new book!</button>
-        <div class="container">
-            <div class="card">
+    <main id="main-section">
+        <div id="initialize">
+            <h1>Welcome to your Library!</h1>
+            <button onclick="promptInput()" id="createButton">Create your library</button> 
+        </div>
+        <div class="container hidden" id="container">
+            <div class="card hidden" id="input-card">
                 <h2>Enter book data:</h2>
                 <label for="title">
                     Title:
@@ -34,7 +36,7 @@
                     Thoughts about the book?
                     <input type="text">
                 </label>
-                <button onclick="createBook()" >Create Book!</button>    
+                <button onclick="createLibrary()" id="add-button">Add new book!</button>
             </div>
         </div>
     </main>
