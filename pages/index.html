@@ -10,8 +10,24 @@
 <body>
     <main>
         <h1>Welcome to your Library</h1>
-        <button id="add-button">Add new book!</button>
-        <div class="container"></div>
+        <button onclick="gatherInput()" id="add-button">Add new book!</button>
+        <div class="container">
+            <div class="card input">
+                <label for="title">
+                    <input type="text">
+                </label>
+                <label for="author">
+                    <input type="text">
+                </label>
+                <label for="pages">
+                    <input type="text">
+                </label>
+                <label for="read">
+                    <input type="text">
+                </label>
+                <button onclick="createBook()" >Create Book!</button>    
+            </div>
+        </div>
     </main>
     <script src="../js/script.js"></script>
 </body>
