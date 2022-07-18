@@ -76,3 +76,11 @@ label{
 label{
 	color: white;
 }
+button{
+	border-radius: 0%;
+	border: solid 2px aqua;
+	background: linear-gradient(to bottom, transparent 50%, green 50%);
+	color: white;
+	border-radius: 3em;
+	font-size: 2rem;
+}
