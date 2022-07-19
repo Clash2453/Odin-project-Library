@@ -29,7 +29,7 @@ function createLibrary(){
     input.classList.add('hidden');
     container.style.backgroundImage = 'url("../images/shelf.jpg")';
     mainTitle.textContent = 'Your Library';
-    this.removeEventListener();
+    this.removeEventListener('click', createLibrary);
     this.addEventListener('click', createBook);
 }
 
