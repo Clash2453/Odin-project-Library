@@ -30,13 +30,14 @@ function promptInput(){
     container.classList.remove('hidden');
     initialization.style.flexDirection = 'row';
     initialization.style.justifyContent = 'space-between'
+    createButton.textContent = 'Add new book'
+    initialization.style.height = '20vh'
 }
 
 //the initial setup for the library subscribes the button for createBook after the first press
 
 function createLibrary(){
     input.classList.add('hidden');
-    container.style.backgroundImage = 'url("../images/shelf.jpg")';
     mainTitle.textContent = 'Your Library';
     this.removeEventListener('click', createLibrary);
     createBook();
@@ -52,26 +53,20 @@ function createBook(){
     const read = document.getElementById('read').value
     const notes = document.getElementById('notes').value
 
-    addCover();
-
     const myBook = new Book(author, title, pages, read, notes);
     myBooks.push(myBook);
+    addCover();
     input.classList.add('hidden');
     createButton.classList.remove('hidden')
 }
 
 //Creates the bookcover and adds it to the container
 //makes the container temporarily flex row to fit the covers
-
 function  addCover(){
-    const bookCover = document.createElement('img')
-    const number = Math.floor(Math.random() * 8) + 1;
-    bookCover.src = `../images/Book${number}.png`;
-    bookCover.classList.add('bookCover')
-    container.style.flexDirection = 'row';
-    container.style.flexWrap = 'wrap';
-    container.style.alignItems = 'flex-start';
-    container.style.justifyContent = 'flex-start';
-    container.style.padding = '32px 32px';
+    const bookCover = document.createElement('div')
+    bookCover.classList.add('bookCover');
+    container.classList.add('shelfActive');
+    bookCover.value = myBooks.length - 1;
+    bookCover.textContent = myBooks[bookCover.value].title;
     container.appendChild(bookCover);
 }
