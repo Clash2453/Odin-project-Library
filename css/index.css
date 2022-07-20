@@ -98,7 +98,7 @@ h2{
 	background-color: rgb(32, 34, 37);
 	width: 25vw;
 	height: 25vw;
-	min-width: 350px;
+	min-width: 300px;
 	min-height: 500px;
 	padding: 8px;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -143,4 +143,18 @@ input{
 
 #add-button{
 	margin-top: 1rem;
+}
+.bookCover{
+	width: 50px;
+	height: 70px;
+}
+.shelfActive{
+	height: 800px;
+	min-height: 0;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 40px 16px;
+	gap: 16px;
 }
