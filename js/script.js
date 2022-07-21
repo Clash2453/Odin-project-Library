@@ -98,11 +98,11 @@ function  addCover(){
 function showInfo(){
     const thisBook = myBooks[this.value]
 
-    title.textContent = thisBook.title;
-    author.textContent = thisBook.author;
-    pages.textContent = thisBook.pages;
-    read.textContent = thisBook.read;
-    notes.textContent = thisBook.notes;  
+    title.textContent = `Title: ${thisBook.title}`;
+    author.textContent = `Author: ${thisBook.author}`;
+    pages.textContent = `Pages: ${thisBook.pages}`;
+    read.textContent = `Status: ${thisBook.read}`;
+    notes.textContent = `${thisBook.notes}`;  
     
     infoCard.classList.remove('hidden');
 }
