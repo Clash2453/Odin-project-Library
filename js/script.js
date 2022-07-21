@@ -52,12 +52,14 @@ function createLibrary(){
     this.removeEventListener('click', createLibrary);
     createBook();
     window.addEventListener('mouseup', function(e){
-        if (e.target !=input && e.target.parentNode != input){
+        if (e.target !=input && e.target.parentNode != input && !input.contains(e.target)){
             input.classList.add('hidden');
             createButton.classList.remove('hidden')
         }
     });
     this.addEventListener('click', createBook);
+    input.classList.remove('hidden');
+    createButton.classList.remove('hidden');
 }
 
 //creates the book object calls addCover()
@@ -69,21 +71,34 @@ function createBook(){
     const read = document.getElementById('read')
     const notes = document.getElementById('notes')
 
-    const myBook = new Book(author.value, title.value, pages.value, read.value, notes.value);
-    myBooks.push(myBook);
-    addCover();
+    const validation = validateInput([author.value, title.value, pages.value, read.value]);
 
-    input.classList.add('hidden');
-    createButton.classList.remove('hidden')
+    if(validation === 0){
+        alert('Cannot have empty input other than notes.');
+        return;
+    }
+    if(validation === 1){
+        alert('Input is too long. It needs to be between 1 and 20 characters.');
+        return;
+    }
+    else{
+        const myBook = new Book(author.value, title.value, pages.value, read.value, notes.value);
+        myBooks.push(myBook);
+        addCover();
+    
+        author.textContent = '';
+        title.textContent = '';
+        pages.textContent = '';
+        read.textContent = '';
+        notes.textContent = '';
 
-    author.textContent = '';
-    title.textContent = '';
-    pages.textContent = '';
-    read.textContent = '';
-    notes.textContent = '';
+        input.classList.add('hidden');
+        createButton.classList.remove('hidden');
+    }
+
 }
 
-//Creates the bookcover and adds it to the container
+//Creates the book cover and adds it to the container
 //makes the container temporarily flex row to fit the covers
 function  addCover(){
     const bookCover = document.createElement('div')
@@ -114,4 +129,15 @@ function closeInfo(){
     read.textContent = '';
     notes.textContent = '';  
     infoCard.classList.add('hidden')
+}
+
+function validateInput(arr){
+    let result = 2;
+    arr.forEach(element => {
+        if(element.length === 0)
+            result = 0;
+        if( element.length > 20)
+           result = 1;
+    });
+    return result
 }
