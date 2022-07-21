@@ -47,19 +47,20 @@ function promptInput(){
 //the initial setup for the library subscribes the button for createBook after the first press
 
 function createLibrary(){
-    input.classList.add('hidden');
-    mainTitle.textContent = 'Your Library';
-    this.removeEventListener('click', createLibrary);
-    createBook();
-    window.addEventListener('mouseup', function(e){
-        if (e.target !=input && e.target.parentNode != input && !input.contains(e.target)){
-            input.classList.add('hidden');
-            createButton.classList.remove('hidden')
-        }
-    });
-    this.addEventListener('click', createBook);
-    input.classList.remove('hidden');
-    createButton.classList.remove('hidden');
+    if(createBook() === 1){
+        window.addEventListener('mouseup', function(e){
+            if (e.target !=input && e.target.parentNode != input && !input.contains(e.target)){
+                input.classList.add('hidden');
+                createButton.classList.remove('hidden')
+            }
+        });
+        this.addEventListener('click', createBook);
+        input.classList.remove('hidden');
+        createButton.classList.remove('hidden');
+        input.classList.add('hidden');
+        mainTitle.textContent = 'Your Library';
+        this.removeEventListener('click', createLibrary);
+    }
 }
 
 //creates the book object calls addCover()
@@ -77,7 +78,7 @@ function createBook(){
         alert('Cannot have empty input other than notes.');
         return;
     }
-    if(validation === 1){
+    else if(validation === 1){
         alert('Input is too long. It needs to be between 1 and 20 characters.');
         return;
     }
@@ -94,6 +95,7 @@ function createBook(){
 
         input.classList.add('hidden');
         createButton.classList.remove('hidden');
+        return 1;
     }
 
 }
@@ -139,5 +141,5 @@ function validateInput(arr){
         if( element.length > 20)
            result = 1;
     });
-    return result
+    return result;
 }
