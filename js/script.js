@@ -51,6 +51,12 @@ function createLibrary(){
     mainTitle.textContent = 'Your Library';
     this.removeEventListener('click', createLibrary);
     createBook();
+    window.addEventListener('mouseup', function(e){
+        if (e.target !=input && e.target.parentNode != input){
+            input.classList.add('hidden');
+            createButton.classList.remove('hidden')
+        }
+    });
     this.addEventListener('click', createBook);
 }
 
