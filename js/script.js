@@ -35,6 +35,8 @@ class Book{
 //Controls the visibility of the input form
 
 function promptInput(){
+    const books = [...document.getElementsByClassName('bookCover')];
+    books.forEach(book => book.classList.add('hidden'))
     createButton.classList.add('hidden');
     input.classList.remove('hidden');
     container.classList.remove('hidden');
@@ -47,6 +49,7 @@ function promptInput(){
 //the initial setup for the library subscribes the button for createBook after the first press
 
 function createLibrary(){
+
     if(createBook() === 1){
         window.addEventListener('mouseup', function(e){
             if (e.target !=input && e.target.parentNode != input && !input.contains(e.target)){
@@ -66,6 +69,9 @@ function createLibrary(){
 //creates the book object calls addCover()
 
 function createBook(){
+    const books = [...document.getElementsByClassName('bookCover')];
+    books.forEach(book => book.classList.remove('hidden'))
+
     const author = document.getElementById('author')
     const title = document.getElementById('title')
     const pages = document.getElementById('pages')
@@ -87,11 +93,11 @@ function createBook(){
         myBooks.push(myBook);
         addCover();
     
-        author.textContent = '';
-        title.textContent = '';
-        pages.textContent = '';
-        read.textContent = '';
-        notes.textContent = '';
+        author.value = '';
+        title.value = '';
+        pages.value = '';
+        read.value = '';
+        notes.value = '';
 
         input.classList.add('hidden');
         createButton.classList.remove('hidden');
@@ -114,6 +120,10 @@ function  addCover(){
 
 function showInfo(){
     const thisBook = myBooks[this.value]
+    container.style.justifyContent = 'center';
+
+    const books = [...document.getElementsByClassName('bookCover')];
+    books.forEach(book => book.classList.add('hidden'))
 
     title.textContent = `Title: ${thisBook.title}`;
     author.textContent = `Author: ${thisBook.author}`;
@@ -131,6 +141,9 @@ function closeInfo(){
     read.textContent = '';
     notes.textContent = '';  
     infoCard.classList.add('hidden')
+
+    const books = [...document.getElementsByClassName('bookCover')];
+    books.forEach(book => book.classList.remove('hidden'))
 }
 
 function validateInput(arr){
