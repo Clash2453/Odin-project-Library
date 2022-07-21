@@ -28,7 +28,8 @@ describe('empty spec', () => {
 
     cy.get('#createButton').click();
 
-    cy.get('#title').type('Epic book 2').should('have.value', 'Epic book 2');
+    cy.get('#title').type('Epic book 2')
+        .should('have.value', 'Epic book 2');
 
     cy.get('#author').type('Epic author 2');
 
