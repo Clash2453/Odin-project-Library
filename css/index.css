@@ -199,8 +199,7 @@ input{
 	color: white;
 	font-family: 'Lato', sans-serif;
 	scrollbar-width: none; 
-	display: flex;
-	flex-wrap: wrap;
+	word-wrap: break-word;
 }
 
 #info-notes-container::-webkit-scrollbar {
