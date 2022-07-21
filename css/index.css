@@ -88,10 +88,7 @@ h2{
 .container{
 	min-height: calc(100vh - 5rem);
 	width: 100%;
-}
-
-.hidden{
-	display: none;
+	justify-content: flex-start;
 }
 
 .card{
@@ -185,7 +182,7 @@ input{
 	width: 100%;
 }
 #info-notes-container{
-	background-color: rgb(66, 64, 64);
+	background-color: hsl(0, 2%, 25%);
 	min-width: 275px;
 	height: 200px;
 	min-height: 75px;
@@ -207,6 +204,10 @@ input{
 }
 
 #info-notes-container::-webkit-scrollbar {
+	display: none;
+}
+
+.hidden{
 	display: none;
 }
 @media only screen and (max-width: 750px){
